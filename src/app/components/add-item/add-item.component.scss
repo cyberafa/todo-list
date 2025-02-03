@@ -1,0 +1,21 @@
+:host {
+  width: 100%;
+  .has-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: 2px solid var(--black-010);
+    width: 100%;
+
+    h1 {
+      text-align: center;
+      color: var(--white);
+    }
+
+    h1,
+    .input-label-text {
+      margin-bottom: 1.5rem;
+    }
+  }
+}

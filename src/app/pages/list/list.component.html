@@ -1,0 +1,56 @@
+<div>
+  @if(getListItems().length > 0){
+  <app-add-item
+    [inputListItems]="getListItems()"
+    (outputAddListItem)="getInputAndAddItem($event)"
+  />
+  <main class="container">
+    @if(listItemsStage('pending').length > 0){
+    <h2>Pendências</h2>
+    <app-input-list-item
+      (outputUpdateItemCheckbox)="updateItemCheckbox($event)"
+      (outputUpdateItemValue)="updateItemValue($event)"
+      (outputDeleteItem)="deleteItem($event)"
+      [inputListItems]="getListItems()"
+      [listItemsStage]="listItemsStage('pending')"
+    />
+    } @if(listItemsStage('completed').length > 0){
+    <h2
+      id="completed"
+      [ngClass]="{
+        only: listItemsStage('pending').length <= 0
+      }"
+    >
+      Concluídas
+    </h2>
+    <app-input-list-item
+      (outputUpdateItemCheckbox)="updateItemCheckbox($event)"
+      (outputUpdateItemValue)="updateItemValue($event)"
+      (outputDeleteItem)="deleteItem($event)"
+      [inputListItems]="getListItems()"
+      [listItemsStage]="listItemsStage('completed')"
+    />
+    }
+  </main>
+  <footer>
+    <button class="btn btn-danger" (click)="deleteAllItems()">
+      Deletar todos os itens
+    </button>
+  </footer>
+  } @else {
+  <div class="container">
+    <img src="img/task-list-null.png" alt="Lista de Tarefas" loading="eager" />
+    @if(addItem() === false){
+    <button class="btn btn-primary" (click)="addItem.set(true)">
+      crie sua lista de tarefas
+    </button>
+    } @else {
+    <app-add-item
+      [inputListItems]="getListItems()"
+      (outputAddListItem)="getInputAndAddItem($event)"
+    />
+
+    }
+  </div>
+  }
+</div>

@@ -1,0 +1,42 @@
+.input-label-text {
+  padding: 0.3rem 0.3rem 0.3rem 1rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 50px;
+  background-color: var(--black-010);
+
+  input[type="text"] {
+    width: 75%;
+    border: none;
+    background: transparent;
+    color: var(--white);
+    outline: 0;
+  }
+
+  input[type="checkbox"] {
+    appearance: none;
+    background-color: var(--white);
+    padding: 0.65rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:checked {
+      transition: all 0.2s;
+      background: var(--primary);
+      border: none;
+    }
+  }
+
+  &.checkbox {
+    padding: 0.3rem 0.3rem 0.3rem 0.65rem;
+  }
+
+  input[type="text"] + input[type="checkbox"] {
+    margin: 0;
+  }
+}
