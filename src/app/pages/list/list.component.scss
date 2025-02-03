@@ -9,7 +9,7 @@
     main.container {
       height: calc(100vh - 130px - 90px);
       overflow-y: auto;
-      padding-top: 1rem;
+      padding: 1rem 1rem 0;
 
       #completed {
         margin-top: 1rem;
